@@ -1,0 +1,92 @@
+.lobby {
+  max-inline-size: 34rem;
+  margin-inline: auto;
+  padding: var(--space-6);
+}
+.lobby h1 {
+  font-family: var(--font-display);
+  margin-block: var(--space-5);
+  font-size: 2rem;
+  font-weight: 500;
+}
+.intro {
+  color: var(--muted);
+  line-height: 1.8;
+  margin-block-end: var(--space-6);
+}
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding-block: var(--space-5);
+  border-block-end: 1px solid var(--line);
+}
+.group h2 {
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0;
+}
+.group p {
+  font-size: 0.75rem;
+  color: var(--muted);
+  line-height: 1.8;
+  margin: 0;
+}
+.player {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) 0;
+  gap: var(--space-3);
+}
+.player strong {
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+.player strong span {
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-inline-start: var(--space-2);
+}
+.player small {
+  display: block;
+  font-size: 0.6875rem;
+  color: var(--muted);
+  margin-block-start: var(--space-1);
+}
+.clock {
+  font-variant-numeric: tabular-nums;
+  font-size: 1.5rem;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius);
+  background: var(--line);
+}
+.clock[data-active="true"] {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+.invite {
+  display: block;
+  overflow-wrap: anywhere;
+  font-size: 0.75rem;
+  color: var(--muted);
+  line-height: 1.8;
+  padding: var(--space-3);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.notice {
+  line-height: 1.7;
+  font-size: 0.8125rem;
+  color: var(--muted);
+}
+@media (width<600px) {
+  .lobby {
+    padding: var(--space-4);
+  }
+}

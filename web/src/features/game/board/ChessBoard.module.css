@@ -1,0 +1,105 @@
+.frame {
+  inline-size: 100%;
+}
+.board {
+  position: relative;
+  inline-size: 100%;
+  aspect-ratio: 558 / 620;
+  border-radius: var(--space-2);
+  overflow: clip;
+  box-shadow: var(--board-shadow);
+}
+.texture {
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+}
+.texture text {
+  font-family: var(--font-display);
+  font-size: 29px;
+  fill: var(--board-ink);
+  opacity: 0.8;
+}
+.cell {
+  position: absolute;
+  inline-size: 10.215%;
+  aspect-ratio: 1;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.cell img {
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+  user-select: none;
+  pointer-events: none;
+}
+.cell[data-selected="true"] {
+  outline: 3px solid var(--accent);
+  outline-offset: -3px;
+  background: var(--accent-soft);
+}
+.cell[data-last="true"]::after {
+  content: "";
+  position: absolute;
+  inset: 4%;
+  border: 2px solid var(--olive);
+  border-radius: 25%;
+  pointer-events: none;
+  opacity: 0.8;
+}
+.cell[data-check="true"] {
+  outline: 3px solid var(--accent);
+  outline-offset: 1px;
+}
+.cell:focus-visible {
+  outline: 3px solid var(--board-focus);
+  outline-offset: 2px;
+  z-index: 2;
+}
+.dot {
+  position: absolute;
+  inline-size: 20%;
+  aspect-ratio: 1;
+  background: var(--olive);
+  border-radius: 50%;
+  inset: 40%;
+  pointer-events: none;
+}
+.capture {
+  position: absolute;
+  inset: 4%;
+  border: 3px solid var(--olive);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.files {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  margin-inline: 4%;
+  padding-block-start: var(--space-2);
+  color: var(--muted);
+  font-size: 0.75rem;
+  text-align: center;
+}
+@media (hover: hover) and (pointer: fine) {
+  .cell[aria-disabled="false"]:hover {
+    background-color: var(--board-hover);
+  }
+}
+@media (forced-colors: active) {
+  .cell[data-selected="true"],
+  .cell[data-last="true"] {
+    outline: 2px solid Highlight;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .cell[data-finish="true"]::after { animation:finish-mark 200ms ease-out; }
+}
+@keyframes finish-mark { from {opacity:.2} to {opacity:.8} }

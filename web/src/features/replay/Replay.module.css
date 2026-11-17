@@ -1,0 +1,166 @@
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 520px) minmax(270px, 300px);
+  align-items: start;
+  gap: clamp(1.5rem, 4vw, 4rem);
+}
+.compact {
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-4);
+}
+.boardArea,
+.sidebar {
+  min-inline-size: 0;
+}
+.boardMeta,
+.sectionHeading,
+.progressLabel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+.boardMeta {
+  min-block-size: 2.5rem;
+}
+.currentMove {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  padding-block: var(--space-3);
+  border-block: 1px solid var(--line);
+  font-size: 0.875rem;
+}
+.currentMove span {
+  color: var(--muted);
+}
+.currentMove strong {
+  font-weight: 500;
+}
+.controls {
+  padding-block-start: var(--space-4);
+}
+.range {
+  inline-size: 100%;
+  min-block-size: 2.75rem;
+  margin: 0;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+.range:focus-visible {
+  outline: 3px solid var(--board-focus);
+  outline-offset: 3px;
+}
+.stepButtons {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-2);
+}
+.stepButtons :global(.ant-btn) {
+  min-block-size: 2.75rem;
+  padding-inline: var(--space-1);
+}
+.sectionHeading {
+  padding-block: var(--space-3) var(--space-4);
+}
+.sectionHeading h2 {
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+}
+.movePanel {
+  border-block-end: 1px solid var(--line);
+  padding-block-end: var(--space-3);
+}
+.moveScroll {
+  max-block-size: 32rem;
+  overflow: auto;
+  scrollbar-gutter: stable;
+}
+.moves {
+  inline-size: 100%;
+  border-collapse: collapse;
+  font-size: 0.75rem;
+  table-layout: fixed;
+}
+.moves :is(th, td) {
+  padding: var(--space-1) 0;
+  border-block-end: 1px solid var(--line);
+  text-align: start;
+}
+.moves th {
+  font-weight: 400;
+  color: var(--muted);
+}
+.moves th:first-child {
+  inline-size: 2.25rem;
+}
+.moves thead th {
+  padding-block: var(--space-3);
+  position: sticky;
+  inset-block-start: 0;
+  z-index: 1;
+  background: var(--paper);
+}
+.moves button,
+.startMove {
+  display: block;
+  inline-size: 100%;
+  min-block-size: 2.75rem;
+  padding: var(--space-2) var(--space-1);
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--ink);
+  font-size: inherit;
+  text-align: start;
+  cursor: pointer;
+}
+.moves small {
+  display: block;
+  color: var(--muted);
+  margin-block-start: var(--space-1);
+}
+.startMove {
+  padding-inline: var(--space-2);
+  font-size: 0.75rem;
+}
+:is(.moves button, .startMove)[aria-current="step"] {
+  color: var(--accent);
+  background: var(--accent-soft);
+  box-shadow: inset 3px 0 var(--accent);
+}
+.keyHint {
+  font-size: 0.6875rem;
+  line-height: 1.7;
+  color: var(--muted);
+  margin-block-start: var(--space-4);
+}
+.srOnly {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+@media (hover: hover) and (pointer: fine) {
+  .moves button:hover,
+  .startMove:hover {
+    background: var(--accent-soft);
+  }
+}
+@media (width < 800px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-5);
+  }
+  .moveScroll {
+    max-block-size: 22rem;
+  }
+  .keyHint {
+    display: none;
+  }
+}

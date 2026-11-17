@@ -1,0 +1,14 @@
+.DS_Store
+.env
+.env.*
+!.env.example
+build/
+node_modules/
+web/dist/
+*.tsbuildinfo
+test-results/
+playwright-report/
+__pycache__/
+*.pyc
+*.dump
+*.iml

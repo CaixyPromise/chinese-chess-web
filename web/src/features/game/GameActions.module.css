@@ -1,0 +1,24 @@
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding-block: var(--space-4);
+}
+
+.actionButtons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-2);
+}
+
+.sound {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+@media (width < 360px) {
+ .actionButtons { grid-template-columns: repeat(2, 1fr); }
+}

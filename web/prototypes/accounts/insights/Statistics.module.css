@@ -1,0 +1,238 @@
+.stack {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(260px, 0.75fr);
+  border-block: 1px solid var(--line);
+}
+.panel {
+  min-inline-size: 0;
+}
+.stack > .panel {
+  padding: var(--space-5);
+}
+.stack > .panel:first-child {
+  padding-left: 0;
+  border-right: 1px solid var(--line);
+}
+.stack > .panel:last-child {
+  padding-right: 0;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-3);
+  align-items: start;
+  margin-bottom: var(--space-4);
+}
+.header h2 {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  margin: var(--space-1) 0 0;
+}
+.eyebrow {
+  color: var(--accent);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+}
+.note {
+  color: var(--muted);
+  font-size: 0.75rem;
+  line-height: 1.7;
+}
+.disclosure {
+  color: var(--muted);
+  font-size: 0.75rem;
+  line-height: 1.7;
+  margin-top: var(--space-4);
+}
+.disclosure summary {
+  cursor: pointer;
+  color: var(--ink);
+}
+.disclosure p {
+  margin-top: var(--space-2);
+}
+.overviewTop {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+  margin: var(--space-4) 0 var(--space-2);
+}
+.ring {
+  flex: 0 0 104px;
+  position: relative;
+  inline-size: 104px;
+  block-size: 104px;
+}
+.ring svg {
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+}
+.ring div {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  line-height: 1.35;
+}
+.ring strong {
+  font-size: 1.35rem;
+  font-variant-numeric: tabular-nums;
+}
+.ring span,
+.summaryStats span {
+  color: var(--muted);
+  font-size: 0.7rem;
+}
+.ring_win {
+  stroke: var(--accent);
+}
+.ring_draw {
+  stroke: var(--muted);
+}
+.ring_loss {
+  stroke: var(--line);
+}
+.overviewNumbers {
+  flex: 1;
+  min-width: 0;
+}
+.summaryStats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-5);
+  margin-bottom: var(--space-3);
+}
+.summaryStats div {
+  display: grid;
+  gap: var(--space-1);
+}
+.summaryStats strong {
+  font-size: 1.2rem;
+  font-variant-numeric: tabular-nums;
+}
+.resultRow {
+  min-width: 0;
+  margin-block: var(--space-4);
+}
+.rowTitle {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-2);
+  font-size: 0.875rem;
+}
+.bar,
+.taskBar {
+  display: flex;
+  height: 12px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--line);
+}
+.bar {
+  margin: var(--space-2) 0;
+}
+.win {
+  background: var(--accent);
+}
+.draw {
+  background: var(--muted);
+}
+.loss {
+  background: var(--line);
+}
+.values {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+}
+.sides {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-4);
+  border-top: 1px solid var(--line);
+}
+.taskHero {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: var(--space-2);
+  margin-top: var(--space-5);
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+.taskHero div {
+  display: grid;
+  gap: var(--space-1);
+}
+.taskHero strong {
+  color: var(--ink);
+  font-size: 1.45rem;
+  font-variant-numeric: tabular-nums;
+}
+.taskBar {
+  margin: var(--space-4) 0 var(--space-2);
+}
+.task_completed {
+  background: var(--accent);
+}
+.task_queued {
+  background: color-mix(in srgb, var(--accent) 22%, var(--surface));
+}
+.task_running {
+  background: color-mix(in srgb, var(--accent) 60%, var(--surface));
+}
+.task_paused {
+  background: var(--muted);
+}
+.task_failed {
+  background: var(--ink);
+}
+.taskGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-2) var(--space-4);
+  margin-top: var(--space-4);
+}
+.taskGrid div {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+  border-bottom: 1px solid var(--line);
+  padding-block: var(--space-2);
+}
+.taskGrid span {
+  flex: 1;
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+.taskGrid strong {
+  font-size: 1rem;
+  font-variant-numeric: tabular-nums;
+}
+.taskGrid small {
+  display: none;
+}
+@media (width < 800px) {
+  .stack {
+    grid-template-columns: 1fr;
+  }
+  .stack > .panel:first-child {
+    padding: var(--space-5) 0;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .stack > .panel:last-child {
+    padding: var(--space-5) 0;
+  }
+}
+@media (width < 500px) {
+  .sides {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}

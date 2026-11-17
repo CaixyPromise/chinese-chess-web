@@ -1,0 +1,46 @@
+.player {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-1);
+}
+
+.avatar {
+  inline-size: 2.5rem;
+  block-size: 2.5rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--line);
+  color: var(--ink);
+  font-size: 1.25rem;
+}
+
+.red {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.playerText {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--space-1);
+  font-size: 0.6875rem;
+  color: var(--muted);
+}
+
+.playerText strong {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.side {
+  margin-inline-start: var(--space-3);
+  color: var(--muted);
+  font-size: 0.6875rem;
+  font-weight: 400;
+}
+
+.ready { display: inline-block; inline-size: 6px; block-size: 6px; background: var(--olive); border-radius: 50%; flex-shrink: 0; }
